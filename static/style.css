@@ -1,3 +1,8 @@
+/*
+   Style général du corps de la page.
+   Centrage vertical et horizontal de la calculatrice.
+   Police sans-serif pour une meilleure lisibilité.
+*/
 body {
    font-family: Arial, sans-serif;
    background-color: #f0f0f0;
@@ -8,6 +13,10 @@ body {
    margin: 0;
 }
 
+/*
+   Conteneur principal de la calculatrice.
+   Apparence moderne avec fond sombre, coins arrondis et ombre.
+*/
 .calculator {
    width: 100%;
    max-width: 600px;
@@ -18,12 +27,20 @@ body {
    text-align: center;
 }
 
+/*
+   Titre de la calculatrice.
+   Couleur blanche et taille de police importante.
+*/
 h1 {
    color: #fff;
    margin-bottom: 20px;
    font-size: 36px;
 }
 
+/*
+   Affichage de l'expression ou du résultat.
+   Style sombre, alignement à droite, grande taille.
+*/
 #display {
    width: 100%;
    height: 80px;
@@ -37,12 +54,20 @@ h1 {
    color: #fff;
 }
 
+/*
+   Grille des boutons de la calculatrice.
+   4 colonnes, espacement entre les boutons.
+*/
 .buttons {
    display: grid;
    grid-template-columns: repeat(4, 1fr);
    gap: 15px;
 }
 
+/*
+   Style des boutons standards.
+   Couleur grise, coins arrondis, effet de survol.
+*/
 .btn {
    width: 100%;
    padding: 30px;
@@ -55,22 +80,38 @@ h1 {
    transition: background-color 0.2s;
 }
 
+/*
+   Effet de survol pour les boutons standards.
+*/
 .btn:hover {
    background-color: #555;
 }
 
+/*
+   Style spécifique pour les boutons d'opérateurs.
+   Couleur orange pour les différencier.
+*/
 .operator {
    background-color: #ff9500;
 }
 
+/*
+   Effet de survol pour les opérateurs.
+*/
 .operator:hover {
    background-color: #e68a00;
 }
 
+/*
+   Effet lors du clic sur un bouton standard.
+*/
 .btn:active {
    background-color: #444;
 }
 
+/*
+   Effet lors du clic sur un bouton opérateur.
+*/
 .operator:active {
    background-color: #cc7a00;
 }

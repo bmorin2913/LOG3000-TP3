@@ -1,6 +1,11 @@
+<!--
+   Template principal de la calculatrice Flask.
+   Structure HTML, intégration du style, boutons et affichage.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <!-- Métadonnées et lien vers le CSS -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Flask Calculator</title>
@@ -9,9 +14,12 @@
 <body>
 <div class="calculator">
    <h1>Flask Calculator</h1>
+   <!-- Formulaire pour envoyer l'expression à calculer -->
    <form method="POST">
+      <!-- Affichage de l'expression ou du résultat -->
       <input type="text" name="display" id="display" value="{{ result }}" readonly>
 
+      <!-- Grille des boutons de la calculatrice -->
       <div class="buttons">
          <button type="button" class="btn" onclick="appendToDisplay('1')">1</button>
          <button type="button" class="btn" onclick="appendToDisplay('2')">02</button>
@@ -36,12 +44,20 @@
    </form>
 </div>
 
+<!-- Script JS pour gérer l'affichage -->
 <script>
+   /**
+    * Ajoute une valeur à l'affichage.
+    * @param value Valeur à ajouter (chiffre ou opérateur)
+    */
    function appendToDisplay(value) {
       const display = document.getElementById('display');
       display.value += value;
    }
 
+   /**
+    * Vide l'affichage.
+    */
    function clearDisplay() {
       document.getElementById('display').value = '';
    }
