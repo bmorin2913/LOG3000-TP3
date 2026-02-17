@@ -1,8 +1,11 @@
 from flask import Flask, request, render_template
-from operators import add, subtract, multiply, divide
+from backend.operators import add, subtract, multiply, divide
+
+# Application Flask principale pour la calculatrice
 
 app = Flask(__name__)
 
+# Dictionnaire des opérateurs disponibles
 OPS = {
     '+': add,
     '-': subtract,
@@ -11,14 +14,24 @@ OPS = {
 }
 
 def calculate(expr: str):
+    """
+    Calcule le résultat d'une expression simple avec un seul opérateur.
+    Args:
+        expr (str): Expression à calculer (ex: "2+3")
+    Returns:
+        float: Résultat du calcul
+    Raises:
+        ValueError: Si l'expression est vide, mal formée ou contient plusieurs opérateurs.
+    """
     if not expr or not isinstance(expr, str):
         raise ValueError("empty expression")
 
-    s = expr.replace(" ", "")
+    s = expr.replace(" ", "")  # Supprime les espaces
 
     op_pos = -1
     op_char = None
 
+    # Recherche de l'opérateur dans l'expression
     for i, ch in enumerate(s):
         if ch in OPS:
             if op_pos != -1:
@@ -27,7 +40,7 @@ def calculate(expr: str):
             op_char = ch
 
     if op_pos <= 0 or op_pos >= len(s) - 1:
-        # operator at start/end or not found
+        # L'opérateur ne doit pas être au début ou à la fin
         raise ValueError("invalid expression format")
 
     left = s[:op_pos]
@@ -39,10 +52,17 @@ def calculate(expr: str):
     except ValueError:
         raise ValueError("operands must be numbers")
 
+    # Appel de la fonction correspondant à l'opérateur
     return OPS[op_char](a, b)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    """
+    Route principale de l'application.
+    Affiche la page de la calculatrice et traite les requêtes POST pour effectuer le calcul.
+    Returns:
+        Template HTML rendu avec le résultat.
+    """
     result = ""
     if request.method == 'POST':
         expression = request.form.get('display', '')
@@ -53,4 +73,5 @@ def index():
     return render_template('index.html', result=result)
 
 if __name__ == '__main__':
+    # Démarre le serveur Flask en mode debug
     app.run(debug=True)
