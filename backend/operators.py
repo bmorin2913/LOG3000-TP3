@@ -11,12 +11,12 @@ def add(a,b):
 
 def subtract(a,b):
     """
-    Soustrait le premier opérande du second.
+    Soustrait le second opérande du premier.
     Args:
         a: premier opérande
         b: second opérande
     Returns:
-        Résultat de b - a
+        Résultat de a - b
     """
     return b - a
 
