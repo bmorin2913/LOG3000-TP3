@@ -79,16 +79,20 @@ Accédez à l'application en cliquant sur le lien généré dans votre console o
 * Appuyer sur le bouton « = » pour obtenir le résultat du calcul.
 * Appuyer sur le bouton « C » à tout moment pour réinitialiser la calculatrice.
 
-## Exécution des tests
-Les tests unitaires sont réalisés avec pytest. Pour exécuter ces derniers, il faut donc installer pytest.
 
-1. Installer pytest :
+## Exécution des tests
+
+Pour exécuter tous les tests, utilisez la commande suivante à la racine du projet :
+
 ```
-pip install pytest
+python -m unittest discover tests
 ```
-2. Exécuter les tests : 
+
+Vous pouvez aussi exécuter un fichier de test spécifique :
+
 ```
-pytest tests/
+python -m unittest tests/test_operators.py
+python -m unittest tests/test_app.py
 ```
 
 ## Flux de contribution
