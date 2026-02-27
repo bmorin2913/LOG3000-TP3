@@ -15,8 +15,14 @@ class TestAppCalculate(unittest.TestCase):
         Vérifie que calculate retourne le bon résultat pour l'opérateur '+'.
         """
         self.assertEqual(calculate("2+3"), 5)
-        self.assertEqual(calculate("-1+1"), 0)
         self.assertEqual(calculate("0+0"), 0)
+
+    def test_valid_negative_add(self):
+        """
+        Teste l'addition avec des valeurs négatives.
+        Vérifie que calculate retourne le bon résultat.
+        """
+        self.assertEqual(calculate("-1+1"), 0)
 
     def test_valid_subtract(self):
         """
@@ -24,6 +30,12 @@ class TestAppCalculate(unittest.TestCase):
         Vérifie que calculate retourne le bon résultat pour l'opérateur '-'.
         """
         self.assertEqual(calculate("5-3"), 2)
+
+    def test_valid_negative_subtract(self):
+        """
+        Teste la soustraction avec des valeurs négatives.
+        Vérifie que calculate retourne le bon résultat pour l'opérateur '-'.
+        """
         self.assertEqual(calculate("-1-1"), -2)
 
     def test_valid_multiply(self):

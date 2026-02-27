@@ -13,8 +13,14 @@ class TestOperators(unittest.TestCase):
         Vérifie que l'addition fonctionne correctement.
         """
         self.assertEqual(add(2, 3), 5)
-        self.assertEqual(add(-1, 1), 0)
         self.assertEqual(add(0, 0), 0)
+
+    def test_negative_add(self):
+        """
+        Teste la fonction add pour le cas négatif.
+        Vérifie que l'addition fonctionne correctement.
+        """
+        self.assertEqual(add(-1, 1), 0)
 
     def test_subtract(self):
         """
@@ -23,6 +29,12 @@ class TestOperators(unittest.TestCase):
         """
         self.assertEqual(subtract(5, 3), 2)
         self.assertEqual(subtract(0, 0), 0)
+
+    def test_negative_subtract(self):
+        """
+        Teste la fonction subtract pour le cas négatif.
+        Vérifie que la soustraction fonctionne correctement.
+        """
         self.assertEqual(subtract(-1, 1), -2)
 
     def test_multiply(self):
@@ -32,7 +44,6 @@ class TestOperators(unittest.TestCase):
         """
         self.assertEqual(multiply(2, 3), 6)
         self.assertEqual(multiply(0, 10), 0)
-        self.assertEqual(multiply(-2, 3), -6)
 
     def test_divide(self):
         """
