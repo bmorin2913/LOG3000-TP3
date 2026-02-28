@@ -29,7 +29,7 @@ def multiply(a,b):
     Returns:
         Produit de a et b
     """
-    return a ** b
+    return a * b
 
 def divide(a,b):
     """
